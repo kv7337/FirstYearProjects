@@ -1,0 +1,1572 @@
+/* Base */
+
+:root {
+    --ink: #101b46;
+    --blue: #003adc;
+    --navy: #000066;
+    --orange: #ff5b2e;
+    --peach: #fff0e8;
+    --paper: #f7f8fb;
+    --line: #dfe4ee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--blue);
+}
+
+:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+}
+
+/* Site navigation */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 6%;
+    background: var(--blue);
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.35rem;
+    letter-spacing: -.3px;
+    white-space: nowrap;
+}
+
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 22px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 7px 0;
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+}
+
+header nav a:hover,
+header nav a:focus-visible,
+header nav a[aria-current="page"],
+header nav .current-page {
+    color: var(--peach);
+    border-bottom-color: var(--orange);
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    padding: 3px 8px;
+    color: #fff;
+    background: transparent;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+header nav a:focus-visible,
+.menu-toggle:focus-visible {
+    outline-color: #fff;
+}
+
+main {
+    width: 100%;
+}
+
+main section {
+    padding: 58px 6%;
+}
+
+main section>h2 {
+    margin: 0 0 28px;
+    color: var(--ink);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    line-height: 1.2;
+    letter-spacing: -.5px;
+}
+
+main section>h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-top: 14px;
+    background: var(--orange);
+}
+
+main section p {
+    max-width: 860px;
+    line-height: 1.75;
+}
+
+footer {
+    padding: 24px 6%;
+    background: var(--navy);
+    border-top: 4px solid var(--orange);
+    color: #fff;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: .9rem;
+}
+
+/* HTTP page */
+
+.http-page #introduction {
+    padding-top: 82px;
+    padding-bottom: 82px;
+    background: linear-gradient(115deg, #fff0e8 0%, #fff0e8 70%, #f1f4ff 100%);
+    border-bottom: 1px solid #f3d6c9;
+}
+
+.http-page #introduction h2 {
+    max-width: 820px;
+    color: var(--navy);
+    font-size: clamp(2.6rem, 5vw, 4.1rem);
+}
+
+.http-page #introduction p {
+    max-width: 740px;
+    margin-bottom: 0;
+    font-size: 1.13rem;
+}
+
+.http-page #request-process {
+    background: var(--paper);
+}
+
+.http-page #request-process>p {
+    margin-bottom: 28px;
+}
+
+.http-page #request-process ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.http-page #request-process li {
+    padding: 25px 24px;
+    background: #fff;
+    border: 1px solid #cfd7ea;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(16, 27, 70, .05);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.http-page #request-process li:hover {
+    transform: translateY(-3px);
+    border-color: #ff9a7c;
+    box-shadow: 0 10px 24px rgba(16, 27, 70, .1);
+}
+
+.http-page #request-process li h3 {
+    margin: 0 0 12px;
+    padding-bottom: 13px;
+    color: var(--navy);
+    border-bottom: 2px solid var(--peach);
+    font-size: 1.13rem;
+    line-height: 1.4;
+}
+
+.http-page #request-process li p {
+    margin: 0;
+    font-size: .96rem;
+    line-height: 1.7;
+}
+
+.http-page #request-process>p:last-child {
+    margin: 28px 0 0;
+    padding: 17px 20px;
+    background: #eaf0ff;
+    border-left: 4px solid var(--blue);
+    border-radius: 4px;
+}
+
+.http-page #request-response {
+    background: #fff;
+}
+
+.http-page #request-response .response-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.http-page #request-response .response-panel {
+    padding: 30px;
+    background: #edf2ff;
+    border: 1px solid #cbd8ff;
+    border-top: 5px solid var(--blue);
+    border-radius: 10px;
+}
+
+.http-page #request-response .response-panel:nth-child(2) {
+    background: #fff1e9;
+    border-color: #f5cbb9;
+    border-top-color: var(--orange);
+}
+
+.http-page #request-response h3 {
+    margin: 0 0 14px;
+    color: var(--navy);
+    font-size: 1.4rem;
+}
+
+.http-page #request-response p {
+    margin: 0 0 15px;
+}
+
+.http-page #request-response p:last-child {
+    margin-bottom: 0;
+}
+
+.http-page #http-diagram {
+    background: var(--peach);
+    border-top: 1px solid #f3d6c9;
+    border-bottom: 1px solid #f3d6c9;
+}
+
+.http-page #http-diagram figure {
+    max-width: 800px;
+    margin: 28px auto 0;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e7cfc4;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(16, 27, 70, .06);
+}
+
+.http-page #http-diagram img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.http-page #http-diagram figcaption {
+    margin-top: 14px;
+    color: #536078;
+    font-size: .86rem;
+    text-align: center;
+}
+
+.http-page #https {
+    background: #fff;
+}
+
+.http-page #https p {
+    max-width: 840px;
+    padding-left: 22px;
+    border-left: 3px solid #d6dff4;
+}
+
+.http-page #https p:last-child {
+    margin-bottom: 0;
+    padding: 18px 22px;
+    background: #f0f4ff;
+    border-left-color: var(--blue);
+    border-radius: 0 7px 7px 0;
+}
+
+.http-page #status-codes {
+    background: var(--paper);
+    overflow-x: auto;
+}
+
+.http-page #status-codes table {
+    width: 100%;
+    margin-top: 24px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #cfd7ea;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.http-page #status-codes caption {
+    margin-bottom: 12px;
+    color: var(--ink);
+    text-align: left;
+    font-weight: 700;
+}
+
+.http-page #status-codes th {
+    padding: 16px 18px;
+    background: var(--navy);
+    color: #fff;
+    text-align: left;
+}
+
+.http-page #status-codes td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+
+.http-page #status-codes tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.http-page #status-codes td:first-child {
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.http-page #status-codes tbody tr:nth-child(even) {
+    background: #f0f3fb;
+}
+
+.http-page #status-codes tbody tr:hover {
+    background: #fff0e8;
+}
+
+.http-page #http-versions {
+    background: var(--navy);
+    color: #fff;
+    border-top: 5px solid var(--orange);
+}
+
+.http-page #http-versions h2,
+.http-page #http-versions p {
+    color: #fff;
+}
+
+.http-page #http-versions p {
+    max-width: 840px;
+}
+
+/* Selected Topic page */
+
+.topic-page #topic-hero {
+    display: block;
+    padding-top: 78px;
+    padding-bottom: 78px;
+    background: linear-gradient(110deg, var(--peach), #f4f6ff);
+    border-bottom: 1px solid #f0d8ca;
+}
+
+.topic-page #topic-hero .topic-hero-copy {
+    max-width: 860px;
+}
+
+.topic-page #topic-hero h2 {
+    margin: 0 0 22px;
+    color: var(--navy);
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    line-height: 1.15;
+}
+
+.topic-page #topic-hero h2::after {
+    display: none;
+}
+
+.topic-page #topic-hero p {
+    max-width: 760px;
+    margin: 0 0 25px;
+    font-size: 1.1rem;
+}
+
+.topic-page #topic-hero a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: var(--blue);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.topic-page #topic-hero a:hover {
+    background: var(--navy);
+}
+
+.topic-page #what-are-wikis,
+.topic-page #wordpress {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(28px, 4vw, 64px);
+    padding-top: 72px;
+    padding-bottom: 72px;
+    background: #fff;
+}
+
+.topic-page #what-are-blogs {
+    padding-top: 72px;
+    padding-bottom: 72px;
+    background: var(--paper);
+}
+
+.topic-page #what-are-blogs .topic-copy {
+    max-width: 920px;
+}
+
+.topic-page #what-are-blogs .topic-visual {
+    width: 100%;
+    max-width: 1120px;
+    margin: 30px auto 0;
+}
+
+.topic-page #what-are-blogs .topic-visual img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+}
+
+.topic-page .topic-copy,
+.topic-page .topic-visual {
+    min-width: 0;
+}
+
+.topic-page .topic-copy h2 {
+    margin: 0 0 24px;
+    color: var(--navy);
+    font-size: clamp(1.85rem, 2.8vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.topic-page .topic-copy h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    margin-top: 14px;
+    background: var(--orange);
+}
+
+.topic-page .topic-copy p {
+    margin: 0 0 18px;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.topic-page .topic-visual {
+    margin: 0;
+    padding: 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 7px 20px rgba(16, 27, 70, .08);
+}
+
+.topic-page .topic-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: contain;
+    border: 1px solid #e7eaf1;
+    border-radius: 5px;
+}
+
+.topic-page #wordpress .topic-visual {
+    text-align: center;
+}
+
+.topic-page #wordpress .topic-visual img {
+    width: 100%;
+    max-width: 245px;
+    margin: 24px auto;
+    border: 0;
+}
+
+.topic-page .topic-caption {
+    margin-top: 14px;
+    color: #59647b;
+    font-size: .85rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.topic-page #comparison {
+    background: var(--peach);
+    border-top: 1px solid #f3d7c8;
+}
+
+.topic-page #comparison>h2,
+.topic-page #comparison>p {
+    max-width: 850px;
+}
+
+.topic-page .topic-table-scroll {
+    margin-top: 26px;
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+}
+
+.topic-page #comparison table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.topic-page #comparison thead th {
+    padding: 17px 20px;
+    background: var(--navy);
+    color: #fff;
+    text-align: left;
+}
+
+.topic-page #comparison tbody th,
+.topic-page #comparison td {
+    padding: 17px 20px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.topic-page #comparison tbody th {
+    color: var(--blue);
+}
+
+.topic-page #comparison tbody tr:nth-child(even) {
+    background: #f3f6fc;
+}
+
+.topic-page #comparison tbody tr:last-child th,
+.topic-page #comparison tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.topic-page #importance {
+    background: var(--navy);
+    color: #fff;
+    border-top: 4px solid var(--orange);
+}
+
+.topic-page #importance h2,
+.topic-page #importance p {
+    color: #fff;
+}
+
+.topic-page #importance p:last-child {
+    max-width: 860px;
+    margin-top: 26px;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, .1);
+    border-left: 4px solid var(--orange);
+}
+
+/* Home */
+
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(28px, 5vw, 70px);
+    padding: 80px 8%;
+    background: var(--peach);
+}
+
+#hero .hero-content {
+    flex: 1 1 56%;
+    min-width: 0;
+}
+
+#hero h2 {
+    max-width: 690px;
+    margin: 0 0 24px;
+    color: var(--navy);
+    font-size: clamp(2.7rem, 5vw, 4.4rem);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+}
+
+#hero p {
+    max-width: 580px;
+    margin: 0 0 28px;
+    font-size: 1.06rem;
+}
+
+#hero a {
+    display: inline-block;
+    padding: 12px 21px;
+    border-radius: 4px;
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    transition: background-color .2s ease;
+}
+
+#hero a:hover {
+    background: var(--navy);
+}
+
+#hero .hero-image {
+    flex: 0 1 40%;
+    margin: 0;
+    text-align: center;
+}
+
+#hero .hero-image img {
+    display: block;
+    width: 100%;
+    max-height: 430px;
+    object-fit: contain;
+}
+
+#before-the-web {
+    background: #fff;
+    display: flow-root;
+}
+
+#before-the-web figure {
+    float: left;
+    width: 41%;
+    margin: 4px 36px 18px 0;
+}
+
+#before-the-web img,
+#birth-of-the-web img {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+#before-the-web figcaption,
+#birth-of-the-web figcaption {
+    margin-top: 9px;
+    color: #59647b;
+    font-size: .84rem;
+}
+
+#before-the-web p {
+    margin: 0 0 18px;
+}
+
+#internet-vs-web {
+    background: var(--paper);
+}
+
+#internet-vs-web .comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#internet-vs-web .comparison-box {
+    padding: 30px;
+    color: #fff;
+    background: var(--navy);
+    border-top: 4px solid var(--orange);
+    border-radius: 8px;
+}
+
+#internet-vs-web .web-box {
+    background: var(--blue);
+}
+
+#internet-vs-web h3 {
+    margin: 0 0 12px;
+    font-size: 1.45rem;
+}
+
+#internet-vs-web p {
+    margin: 0;
+    color: inherit;
+}
+
+#birth-of-the-web {
+    background: #fff;
+}
+
+#birth-of-the-web figure {
+    max-width: 960px;
+    margin: 28px 0 0;
+}
+
+#birth-of-the-web img {
+    max-height: 520px;
+    object-fit: contain;
+    object-position: left;
+}
+
+#early-technologies {
+    background: var(--paper);
+}
+
+#early-technologies .technology-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+#early-technologies .technology {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: #fff;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+#early-technologies .technology h3 {
+    margin: 0 0 8px;
+    color: var(--blue);
+    font-size: 1.18rem;
+}
+
+#early-technologies .technology p {
+    margin: 0;
+    font-size: .96rem;
+}
+
+#early-technologies .technology:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(16, 27, 70, .09);
+}
+
+#timeline {
+    background: var(--peach);
+}
+
+#timeline ol {
+    position: relative;
+    display: grid;
+    gap: 18px;
+    margin: 0;
+    padding: 0 0 0 42px;
+    list-style: none;
+}
+
+#timeline ol::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    background: var(--orange);
+}
+
+#timeline li {
+    position: relative;
+    padding: 21px 25px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--orange);
+    border-radius: 7px;
+}
+
+#timeline li::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: -40px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 3px solid var(--peach);
+}
+
+#timeline li strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--blue);
+    font-size: 1.25rem;
+}
+
+#timeline li p {
+    margin: 0;
+}
+
+/* Pioneers */
+
+.pioneers-page #pioneers-intro {
+    background: var(--peach);
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.pioneers-page #pioneers-intro p {
+    max-width: 790px;
+    font-size: 1.08rem;
+}
+
+.pioneers-page .pioneer-entry {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background: #fff;
+}
+
+.pioneers-page .pioneer-entry:nth-of-type(odd) {
+    background: var(--paper);
+}
+
+.pioneers-page .pioneer-card {
+    display: grid;
+    grid-template-columns: minmax(185px, 250px) minmax(0, 1fr);
+    column-gap: clamp(24px, 3.5vw, 46px);
+    align-items: start;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: clamp(22px, 3vw, 34px);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(16, 27, 70, .055);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.pioneers-page .pioneer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(16, 27, 70, .11);
+}
+
+.pioneers-page .pioneer-card h3 {
+    grid-column: 2;
+    margin: 0 0 18px;
+    color: var(--navy);
+    font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+    line-height: 1.25;
+}
+
+.pioneers-page .pioneer-card h3::after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 3px;
+    margin-top: 12px;
+    background: var(--orange);
+}
+
+.pioneers-page .pioneer-card figure {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin: 0;
+}
+
+.pioneers-page .pioneer-card img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    background: #eef2f9;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+}
+
+.pioneers-page .pioneer-card figcaption {
+    margin-top: 9px;
+    color: #59647b;
+    font-size: .82rem;
+    line-height: 1.45;
+}
+
+.pioneers-page .pioneer-card p {
+    grid-column: 2;
+    max-width: 690px;
+    margin: 0 0 14px;
+}
+
+.pioneers-page .pioneer-card p:last-child {
+    margin: 0;
+    padding: 12px 16px;
+    background: var(--peach);
+    border-left: 4px solid var(--orange);
+}
+
+.pioneers-page #additional-pioneers {
+    background: var(--paper);
+}
+
+.pioneers-page #additional-pioneers .pioneer-card {
+    margin-top: 22px;
+}
+
+.pioneers-page #kubernetes-comparison {
+    background: var(--navy);
+    color: #fff;
+}
+
+.pioneers-page #kubernetes-comparison h2,
+.pioneers-page #kubernetes-comparison p {
+    color: #fff;
+}
+
+.pioneers-page #kubernetes-comparison p {
+    max-width: 850px;
+}
+
+/* Responsive layout */
+
+/* Terminology page */
+
+.terminology-page #terminology-hero {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background: linear-gradient(110deg, #fff0e8, #f7f8fb);
+    border-bottom: 1px solid #f2d7ca;
+}
+
+.terminology-page #terminology-hero p {
+    max-width: 720px;
+    font-size: 1.1rem;
+}
+
+.terminology-page .glossary-menu {
+    padding: 44px 6% 48px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+}
+
+.terminology-page .glossary-menu h2 {
+    margin: 0 0 24px;
+    color: var(--ink);
+    font-size: 1.7rem;
+}
+
+.terminology-page .glossary-menu ul {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 1100px;
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.terminology-page .glossary-menu li {
+    display: flex;
+    min-width: 0;
+}
+
+.terminology-page .glossary-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 78px;
+    padding: 15px 14px;
+    color: var(--ink);
+    background: #f7f8fb;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(15, 31, 70, 0.05);
+    font-weight: 700;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.terminology-page .glossary-menu a:hover,
+.terminology-page .glossary-menu a:focus-visible {
+    border-color: var(--orange);
+    background: var(--peach);
+    box-shadow: 0 8px 18px rgba(15, 31, 70, 0.09);
+    transform: translateY(-2px);
+}
+
+.terminology-page .glossary-section:nth-of-type(even) {
+    background: var(--paper);
+}
+
+.terminology-page .glossary-section dl {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+}
+
+.terminology-page .glossary-entry {
+    padding: 18px 22px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--orange);
+    border-radius: 9px;
+    box-shadow: 0 3px 10px rgba(15, 31, 70, 0.04);
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.terminology-page .glossary-entry:nth-child(even) {
+    border-left-color: var(--blue);
+}
+
+.terminology-page .glossary-entry:hover,
+.terminology-page .glossary-entry:focus-within {
+    background: #fff9f5;
+    border-color: #e6c4b7;
+    border-left-color: var(--orange);
+    box-shadow: 0 9px 20px rgba(15, 31, 70, 0.09);
+    transform: translateY(-2px);
+}
+
+.terminology-page .glossary-entry:nth-child(even):hover,
+.terminology-page .glossary-entry:nth-child(even):focus-within {
+    background: #f4f7ff;
+    border-color: #c7d5fb;
+    border-left-color: var(--blue);
+}
+
+.terminology-page .glossary-section dt {
+    margin: 0 0 7px;
+    color: var(--navy);
+    font-size: 1.15rem;
+    font-weight: 700;
+    scroll-margin-top: 24px;
+}
+
+.terminology-page .glossary-section dd {
+    padding: 0;
+    margin: 0;
+}
+
+.terminology-page .glossary-section dd.definition {
+    margin-bottom: 7px;
+}
+
+.terminology-page .glossary-section dd.example {
+    margin-bottom: 7px;
+    color: #46526b;
+}
+
+.terminology-page .glossary-section dd.related {
+    margin-top: 7px;
+}
+
+.terminology-page .glossary-section dd.source-note {
+    margin-top: 7px;
+    color: #5a6580;
+    font-size: 0.9rem;
+}
+
+.terminology-page #comparisons {
+    background: var(--peach);
+    overflow-x: auto;
+}
+
+.terminology-page #comparisons table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 8px 26px rgba(16, 27, 70, .07);
+}
+
+.terminology-page #comparisons th,
+.terminology-page #comparisons td {
+    padding: 15px;
+    border: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.terminology-page #comparisons thead th {
+    color: #fff;
+    background: var(--navy);
+}
+
+.terminology-page #comparisons tbody tr:nth-child(even) {
+    background: #f7f8fb;
+}
+
+/* References page */
+
+.references-page #references {
+    padding-top: 0;
+    background: var(--paper);
+}
+
+.references-page .references-intro {
+    margin: 0 -6% 34px;
+    padding: 72px 6% 52px;
+    background: linear-gradient(115deg, var(--peach), #eef3ff);
+    border-bottom: 1px solid #eaded9;
+}
+
+.references-page .references-intro h2 {
+    margin: 0 0 18px;
+    color: var(--navy);
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    line-height: 1.15;
+}
+
+.references-page .references-intro h2::after {
+    content: "";
+    display: block;
+    width: 52px;
+    height: 4px;
+    margin-top: 16px;
+    background: var(--orange);
+}
+
+.references-page .references-intro p {
+    max-width: 780px;
+    margin: 12px 0 0;
+    color: #33405c;
+    font-size: 1.04rem;
+}
+
+.references-page .references-intro p:last-child {
+    font-size: .9rem;
+}
+
+.references-page .references-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 36px;
+}
+
+.references-page .references-jump a {
+    padding: 9px 15px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--navy);
+    font-size: .9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+
+.references-page .references-jump a:hover,
+.references-page .references-jump a:focus-visible {
+    background: var(--peach);
+    border-color: var(--orange);
+}
+
+.references-page #references>h3 {
+    margin: 42px 0 18px;
+    padding: 0 0 12px;
+    color: var(--navy);
+    border-bottom: 2px solid #dce3f2;
+    font-size: clamp(1.35rem, 2.3vw, 1.7rem);
+    scroll-margin-top: 22px;
+}
+
+.references-page #references>h3::before {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 22px;
+    margin-right: 12px;
+    background: var(--orange);
+    border-radius: 3px;
+    vertical-align: -3px;
+}
+
+.references-page #references>h3:nth-of-type(even)::before {
+    background: var(--blue);
+}
+
+.references-page #references>ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: reference;
+}
+
+.references-page #references>ol>li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    min-width: 0;
+    padding: 19px 21px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--blue);
+    border-radius: 9px;
+    box-shadow: 0 3px 10px rgba(16, 27, 70, .045);
+    overflow-wrap: anywhere;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.references-page #references>ol>li:nth-child(odd) {
+    border-left-color: var(--orange);
+}
+
+.references-page #references>ol>li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(16, 27, 70, .09);
+}
+
+.references-page #references>ol>li a {
+    display: inline-block;
+    max-width: 100%;
+    color: var(--blue);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.references-page #references>ol>li em {
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.references-page #references>ol.bibliography>li {
+    padding-left: 2.7rem;
+    text-indent: -1.35rem;
+}
+
+.references-page .references-review {
+    margin-top: 46px;
+    padding: 23px 27px;
+    background: #fff8f3;
+    border: 1px solid #f2d3c2;
+    border-left: 4px solid var(--orange);
+    border-radius: 8px;
+}
+
+.references-page .references-review h3 {
+    margin: 0 0 9px;
+    color: var(--navy);
+    font-size: 1.15rem;
+}
+
+.references-page .references-review p {
+    margin: 0;
+}
+
+/* Footer navigation */
+footer p+p {
+    margin-top: .55rem;
+}
+
+footer a[href="#top"] {
+    display: inline-block;
+    color: #f4f6ff;
+    font-size: .88rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-color: rgba(244, 246, 255, .65);
+    text-underline-offset: 3px;
+    transition: color .15s ease, text-decoration-color .15s ease;
+}
+
+footer a[href="#top"]:visited {
+    color: #f4f6ff;
+}
+
+footer a[href="#top"]:hover {
+    color: #fff;
+    text-decoration-color: #fff;
+}
+
+footer a[href="#top"]:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* References */
+.references-page #references>ol.bibliography {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.references-page #references>ol.bibliography>li {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    padding: 19px 21px;
+    text-indent: 0;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+.references-page #references>ol.bibliography>li .reference-citation {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 1.35rem;
+    text-indent: -1.35rem;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    white-space: normal;
+}
+
+.references-page #references>ol.bibliography>li>a.reference-url {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: .5rem 0 0;
+    padding: 0;
+    text-indent: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.55;
+}
+
+/* Responsive rules*/
+
+@media (max-width: 1000px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+    }
+
+    header nav.active {
+        display: block;
+    }
+
+    header nav ul {
+        display: block;
+        padding-top: 8px;
+    }
+
+    header nav li {
+        border-top: 1px solid rgba(255, 255, 255, .2);
+    }
+
+    header nav a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    #hero {
+        padding: 60px 6%;
+    }
+
+    .http-page #request-process ol {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #early-technologies .technology-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pioneers-page .pioneer-card {
+        grid-template-columns: minmax(160px, 215px) minmax(0, 1fr);
+    }
+
+    .pioneers-page .pioneer-card img {
+        height: 230px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .topic-page #what-are-wikis,
+    .topic-page #wordpress {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .topic-page .topic-visual {
+        width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .references-page .references-intro {
+        margin-right: -5%;
+        margin-left: -5%;
+        padding: 50px 5% 40px;
+    }
+
+    .references-page #references>ol {
+        grid-template-columns: 1fr;
+    }
+
+    .references-page #references>ol>li {
+        padding: 17px;
+    }
+
+    .references-page #references>ol.bibliography {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .topic-page #topic-hero {
+        padding-top: 54px;
+        padding-bottom: 54px;
+    }
+
+    .topic-page #what-are-wikis,
+    .topic-page #what-are-blogs,
+    .topic-page #wordpress {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .topic-page .topic-visual {
+        padding: 10px;
+    }
+
+    .topic-page #comparison table {
+        min-width: 520px;
+    }
+
+    main section {
+        padding: 42px 5%;
+    }
+
+    header {
+        padding: 15px 5%;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    #hero {
+        display: block;
+        padding: 48px 6%;
+    }
+
+    #hero h2 {
+        font-size: clamp(2.25rem, 9vw, 3.1rem);
+        letter-spacing: -1px;
+    }
+
+    #hero .hero-image {
+        margin-top: 32px;
+    }
+
+    #hero .hero-image img {
+        max-width: 330px;
+        margin: 0 auto;
+    }
+
+    #before-the-web figure {
+        float: none;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 0 24px;
+    }
+
+    #internet-vs-web .comparison,
+    #early-technologies .technology-list {
+        grid-template-columns: 1fr;
+    }
+
+    #timeline ol {
+        padding-left: 37px;
+    }
+
+    #timeline li {
+        padding: 18px;
+    }
+
+    #timeline li::before {
+        left: -35px;
+    }
+
+    .pioneers-page .pioneer-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .pioneers-page .pioneer-card h3 {
+        order: 0;
+        margin-bottom: 2px;
+    }
+
+    .pioneers-page .pioneer-card figure {
+        order: 1;
+        width: 100%;
+    }
+
+    .pioneers-page .pioneer-card img {
+        height: 250px;
+    }
+
+    .pioneers-page .pioneer-card p {
+        order: 2;
+    }
+
+    .http-page #request-process ol {
+        grid-template-columns: 1fr;
+    }
+
+    .http-page #request-response .response-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .http-page #status-codes {
+        overflow-x: auto;
+    }
+
+    .http-page #status-codes table {
+        min-width: 520px;
+    }
+
+    .http-page #http-diagram figure {
+        padding: 12px;
+    }
+
+    .terminology-page #terminology-hero {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .terminology-page .glossary-menu {
+        padding: 40px 5%;
+    }
+
+    .terminology-page .glossary-menu ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 440px) {
+    .terminology-page .glossary-menu ul {
+        grid-template-columns: 1fr;
+    }
+}

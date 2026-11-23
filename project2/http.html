@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP | Origins of the Internet and the Web</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="http-page" id="top">
+
+    <!-- Header and Navigation -->
+    <header>
+        <h1>How HTTP Works</h1>
+
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-nav" aria-expanded="false">☰</button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pioneers.html">Pioneers</a></li>
+                <li><a href="http.html" class="current-page" aria-current="page">HTTP</a></li>
+                <li><a href="topic.html">Selected Topic</a></li>
+                <li><a href="terminology.html">Terminology</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Introduction -->
+        <section id="introduction">
+            <h2>How HTTP Works</h2>
+
+            <p>
+                HTTP stands for Hypertext Transfer Protocol. It is a
+                communication protocol used by web browsers and servers
+                to exchange information. When someone opens a website,
+                the browser sends a request and the server sends a response.
+                This process allows users to access web pages, images,
+                videos and other online resources (MDN Web Docs, n.d.).
+            </p>
+        </section>
+
+        <!-- How a Browser Requests a Web Page -->
+        <section id="request-process">
+            <h2>How a Browser Requests a Web Page</h2>
+
+            <p>
+                Opening a website involves several steps that happen
+                very quickly. The browser and the web server communicate
+                to find and display the requested page.
+            </p>
+
+            <ol>
+                <li>
+                    <h3>1. Entering the URL</h3>
+                    <p>
+                        The user enters a URL into the browser's address
+                        bar. A URL identifies the resource the user wants
+                        to access, including the protocol and the domain name.
+                    </p>
+                </li>
+
+                <li>
+                    <h3>2. DNS Lookup</h3>
+                    <p>
+                        The browser needs to find the IP address connected
+                        to the domain name. It uses the Domain Name System
+                        (DNS), which translates domain names into IP addresses.
+                        This helps the browser locate the correct server.
+                    </p>
+                </li>
+
+                <li>
+                    <h3>3. Connecting to the Server</h3>
+                    <p>
+                        After finding the IP address, the browser establishes
+                        a connection with the server. For HTTP/1.1 and HTTP/2,
+                        this normally involves a TCP connection. For HTTPS,
+                        a TLS handshake is also used to establish a secure
+                        connection.
+                    </p>
+                </li>
+
+                <li>
+                    <h3>4. Sending an HTTP Request</h3>
+                    <p>
+                        The browser sends an HTTP request to ask for the
+                        required resource. The request contains a method,
+                        such as GET, and headers that provide additional
+                        information. GET is commonly used to request a web
+                        page, while POST is often used to send information
+                        from a form.
+                    </p>
+                </li>
+
+                <li>
+                    <h3>5. Receiving an HTTP Response</h3>
+                    <p>
+                        The server processes the request and sends an HTTP
+                        response. The response includes a status code,
+                        headers and, in many cases, a body containing the
+                        requested HTML document. A status code such as
+                        200 means that the request was successful.
+                    </p>
+                </li>
+
+                <li>
+                    <h3>6. Loading Additional Resources</h3>
+                    <p>
+                        The browser reads the HTML document and discovers
+                        other resources needed by the page. It sends
+                        additional requests for files such as CSS stylesheets,
+                        images and JavaScript. When these resources arrive,
+                        the browser uses them to display the complete page.
+                    </p>
+                </li>
+            </ol>
+
+            <p>
+                These steps usually happen in a fraction of a second.
+                HTTP uses a request-and-response model, which means that
+                the client starts communication by sending a request
+                and the server answers it (Fielding et al., 2022).
+            </p>
+        </section>
+
+        <!-- HTTP Request and Response -->
+        <section id="request-response">
+            <h2>HTTP Request and HTTP Response</h2>
+
+            <div class="response-grid">
+                <div class="response-panel">
+                    <h3>HTTP Request</h3>
+
+                    <p>
+                        An HTTP request is a message sent by the browser to a
+                        web server. It contains a request method, a resource
+                        address and headers. Some requests, such as POST, can
+                        also include a body with information sent to the server.
+                    </p>
+
+                    <p>
+                        Common request methods include GET, POST, PUT and DELETE.
+                        GET retrieves information, POST sends information,
+                        PUT updates or creates a resource, and DELETE requests
+                        the removal of a resource.
+                    </p>
+
+                </div>
+                <div class="response-panel">
+                    <h3>HTTP Response</h3>
+
+                    <p>
+                        An HTTP response is the message returned by the server.
+                        It contains a status code that describes the result
+                        of the request, response headers with additional
+                        information and sometimes a body with the requested
+                        content. The browser uses this response to decide
+                        how to display the resource (Fielding et al., 2022).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTTP Diagram -->
+        <section id="http-diagram">
+            <h2>The HTTP Request–Response Cycle</h2>
+
+            <p>
+                The diagram below illustrates the communication between
+                a browser and a web server. It shows how a request is
+                sent and how the server returns a response.
+            </p>
+
+            <figure>
+                <img src="assets/media/http-cycle.png"
+                    alt="Diagram showing the HTTP request and response cycle between a browser and a web server">
+                <figcaption>
+                    HTTP request–response cycle. Diagram created by the author using draw.io.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- HTTPS -->
+        <section id="https">
+            <h2>HTTP vs. HTTPS</h2>
+
+            <p>
+                HTTPS stands for Hypertext Transfer Protocol Secure.
+                It is the secure version of HTTP and uses Transport
+                Layer Security (TLS) to protect communication between
+                a browser and a server. TLS encrypts the information
+                being exchanged, helping prevent other people from
+                reading it while it travels across the network.
+            </p>
+
+            <p>
+                HTTPS also helps protect the integrity of information
+                and verifies the identity of the website through
+                digital certificates. A certificate helps the browser
+                check that it is communicating with the intended
+                website. This is especially important when users log
+                in, enter personal information or make online payments
+                (MDN Web Docs, n.d.).
+            </p>
+
+            <p>
+                Without HTTPS, information sent over an unencrypted
+                connection could be intercepted or changed by attackers.
+                This is why modern websites should use HTTPS to protect
+                their visitors.
+            </p>
+        </section>
+
+        <!-- HTTP Status Codes -->
+        <section id="status-codes">
+            <h2>Common HTTP Status Codes</h2>
+
+            <p>
+                HTTP status codes are three-digit numbers returned
+                by a server. They tell the browser what happened
+                when it processed a request. Status codes are divided
+                into five groups, depending on their first digit
+                (Internet Assigned Numbers Authority, n.d.).
+            </p>
+
+            <table>
+                <caption>Examples of common HTTP status codes</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Status Code</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>200</td>
+                        <td>OK</td>
+                        <td>The request was successful.</td>
+                    </tr>
+
+                    <tr>
+                        <td>301</td>
+                        <td>Moved Permanently</td>
+                        <td>The resource has a new permanent URL.</td>
+                    </tr>
+
+                    <tr>
+                        <td>403</td>
+                        <td>Forbidden</td>
+                        <td>The server understood the request but refuses access.</td>
+                    </tr>
+
+                    <tr>
+                        <td>404</td>
+                        <td>Not Found</td>
+                        <td>The requested resource could not be found.</td>
+                    </tr>
+
+                    <tr>
+                        <td>500</td>
+                        <td>Internal Server Error</td>
+                        <td>The server encountered an unexpected problem.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- HTTP Versions -->
+        <section id="http-versions">
+            <h2>HTTP Versions and the Future</h2>
+
+            <p>
+                HTTP has developed over time to improve communication
+                between browsers and servers. HTTP/1.1 introduced
+                persistent connections, while HTTP/2 added features
+                such as multiplexing and header compression. HTTP/3
+                uses QUIC to improve how data is transported across
+                the network (Fielding et al., 2022).
+            </p>
+
+            <p>
+                There is no official HTTP/4 standard. HTTP/3 is the
+                latest major version described in the current HTTP
+                standards. Future improvements may be introduced,
+                but HTTP/4 is not currently an established version.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Internet Origins Project</p>
+            <p><a href="#top">Back to top</a></p>
+    </footer>
+
+    <script>
+        // Keep the mobile menu accessible to keyboard and touch users.
+        const menuToggle = document.querySelector('.menu-toggle');
+        const siteNav = document.getElementById(menuToggle.getAttribute('aria-controls'));
+        function setMenuOpen(open) {
+            siteNav.classList.toggle('active', open);
+            menuToggle.setAttribute('aria-expanded', String(open));
+        }
+        menuToggle.addEventListener('click', () => {
+            setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+        });
+        siteNav.addEventListener('click', (event) => {
+            if (event.target.closest('a')) setMenuOpen(false);
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+                setMenuOpen(false);
+                menuToggle.focus();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
